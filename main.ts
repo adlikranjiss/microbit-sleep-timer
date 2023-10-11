@@ -31,4 +31,9 @@ input.onGesture(Gesture.Shake, function on_gesture_shake() {
             `)
     }
     
+    if (elapsed < sleephour) {
+        basic.showString("You need this much more hours of sleep:")
+        basic.showString("" + ("" + (sleephour - elapsed) / 1))
+    }
+    
 })
