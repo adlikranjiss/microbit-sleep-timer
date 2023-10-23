@@ -9,13 +9,13 @@ input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def on_button_pressed_b():
     global elapsed
-    elapsed = input.running_time() - start
-    basic.show_number(Math.idiv(elapsed, 1000))
+    elapsed = Math.idiv(input.running_time() - start, 1000)
+    basic.show_number(elapsed)
 input.on_button_pressed(Button.B, on_button_pressed_b)
 
 def on_gesture_shake():
     global sleephour
-    sleephour = 28800
+    sleephour = 5
     if elapsed >= sleephour:
         basic.show_leds("""
             . . . . .
@@ -34,5 +34,5 @@ def on_gesture_shake():
             """)
     if elapsed < sleephour:
         basic.show_string("You need this much more hours of sleep:")
-        basic.show_string("" + str(((sleephour - elapsed) / 1)))
+        basic.show_string("" + str((sleephour - elapsed) / 1))
 input.on_gesture(Gesture.SHAKE, on_gesture_shake)

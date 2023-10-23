@@ -7,12 +7,12 @@ input.onButtonPressed(Button.A, function on_button_pressed_a() {
 })
 input.onButtonPressed(Button.B, function on_button_pressed_b() {
     
-    elapsed = input.runningTime() - start
-    basic.showNumber(Math.idiv(elapsed, 1000))
+    elapsed = Math.idiv(input.runningTime() - start, 1000)
+    basic.showNumber(elapsed)
 })
 input.onGesture(Gesture.Shake, function on_gesture_shake() {
     
-    sleephour = 28800
+    sleephour = 5
     if (elapsed >= sleephour) {
         basic.showLeds(`
             . . . . .
